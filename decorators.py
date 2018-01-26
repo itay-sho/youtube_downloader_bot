@@ -1,0 +1,2 @@
+class InvalidArgsCountError(Exception):
+    pass

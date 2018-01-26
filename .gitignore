@@ -2,3 +2,5 @@ syntax glob
 
 .idea/*
 env/*
+tokens/*
+binaries/development/*
