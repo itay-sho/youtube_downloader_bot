@@ -1,3 +1,4 @@
 certifi==2018.1.18
 future==0.16.0
 python-telegram-bot==9.0.0
+youtube-dl==2018.1.27
