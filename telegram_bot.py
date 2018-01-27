@@ -15,7 +15,7 @@ class YoutubeToMp3Arguments(enum.Enum):
 class TelegramBot:
     def __init__(self, token_filename):
         with open(token_filename, 'rt') as token_file:
-            self.token = token_file.read()
+            self.token = token_file.read().splitlines()[0]
 
     def launch(self):
         updater = Updater(token=self.token)
