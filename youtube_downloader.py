@@ -12,7 +12,8 @@ class YoutubeDownloader:
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'keepvideo': 'True'
+        'keepvideo': 'True',
+        'logger': 'True'
     }
 
     @staticmethod

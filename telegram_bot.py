@@ -69,7 +69,7 @@ class TelegramBot:
     @staticmethod
     def youtube_to_mp3(bot, chat_id, text):
         try:
-            logging.error("Starting calculate")
+            logging.info("Starting calculate")
 
             args_list = text.split()
 
@@ -77,15 +77,21 @@ class TelegramBot:
                 bot.send_message(chat_id=chat_id, text='Invalid arguments count')
                 return
 
+            logging.info("a")
+
             youtube_link = args_list[YoutubeToMp3Arguments.YOUTUBE_LINK.value]
 
             if not TelegramBot.validate_youtube_link_argument(youtube_link):
                 bot.send_message(chat_id=chat_id, text='Invalid argument')
                 return
 
+            logging.info("b")
+
             bot.send_message(chat_id=chat_id, text='Starting to convert video')
             output_file = youtube_downloader.YoutubeDownloader.download_and_convert(
                 args_list[YoutubeToMp3Arguments.YOUTUBE_LINK.value])
+
+            logging.info("c")
 
             with open(output_file, 'rb') as downloaded_audio:
                 bot.send_audio(chat_id=chat_id, audio=downloaded_audio, timeout=100)
